@@ -1,0 +1,46 @@
+body {
+    font-family: monospace;
+    background-color: #292828;
+    color: #bababa;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-image: url("assets/pexels-musicfactory-lehmannsound-66191.jpg");
+    background-position: center;
+    background-size: cover;
+}
+header nav  a{
+    color: white;
+    text-decoration: none;
+    font-size: large;
+    margin-right: 30px;
+}
+main {
+    max-width: 80%;
+    margin: auto;
+}
+
+.biggerP {
+    font-size: 15px;
+    line-height: 160%;
+}
+.sectionImg {
+    width: 50%;
+}
+.sectionText {
+    width: 50%;
+    font-size: 14px;
+}
+
+#section1 h2 {
+    text-align: center;
+}
+#section2 {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
