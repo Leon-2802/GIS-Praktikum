@@ -1,46 +1,148 @@
+/*Allgemeiner Style für alle Elemente eines Typs:*/
 body {
     font-family: monospace;
     background-color: #292828;
     color: #bababa;
 }
-
+a {
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+main {
+    max-width: 80vw;
+    margin: auto;
+}
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 14vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-image: url("assets/pexels-musicfactory-lehmannsound-66191.jpg");
+    background-image: url("assets/pexels-musicfactory-lehmannsound-66192.jpg");
     background-position: center;
     background-size: cover;
 }
-header nav  a{
+h2 {
     color: white;
-    text-decoration: none;
-    font-size: large;
-    margin-right: 30px;
 }
-main {
-    max-width: 80%;
-    margin: auto;
+h3 {
+    color: white;
 }
 
+/*Klassenstyling:*/
+#showOnMobile {
+    display: none;
+}
 .biggerP {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 160%;
+}
+.section {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    margin-bottom: 50px;
 }
 .sectionImg {
     width: 50%;
+    height: auto;
+    align-self: center;
 }
 .sectionText {
     width: 50%;
     font-size: 14px;
+    line-height: 160%;
+}
+.sectionText::first-line {
+    font-size: larger;
+    font-style: italic;
+}
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-icons {
+    display: flex;
+}
+.footer-icon {
+    margin-right: 30px;
+}
+.footer-icon i{
+    margin-right: 8px;
+}
+.footer-icon:hover {
+    /* color: red; */
+    animation: 1s bounce ease-in-out;
+    /* transition: .4s color ease-in-out; */
 }
 
+#copyright{
+    animation: 1s bounce ease-in-out;
+}
+
+/*IDs und spezielle Elemete index.html von oben nach unten geordnet:*/
+#heading {
+    font-size: 35px;
+    color: white;
+}
+header nav {
+    margin-right: 7%;
+}
+header nav  a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 50px;
+}
+#section1 {
+    margin-top: 25vh;
+    margin-bottom: 50px;
+}
+#wikipedia-link {
+    margin-left: 10%;
+    font-style: italic;
+}
 #section1 h2 {
     text-align: center;
 }
-#section2 {
-    display: flex;
-    flex-direction: row;
-    column-gap: 20px;
+
+/*Responsiv:*/
+@media (max-width: 850px) {
+    .section {
+        display: block;
+    }
+    .sectionText {
+        width: 100%;
+    }
+    .sectionImg {
+        width: 100%;
+    }
+    #hideOnMobile {
+        display: none;
+    }
+    #showOnMobile {
+        display: block;
+    }
+}
+
+/*Animations:*/
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
