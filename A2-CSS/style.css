@@ -4,8 +4,8 @@ body {
     background-color: #292828;
     color: #bababa;
 }
-a {
-    color: white;
+[href] {
+    color: white;   
     text-decoration: none;
 }
 a:hover {
@@ -31,6 +31,7 @@ header {
 }
 h2 {
     color: white;
+    font-family: Zen Antique Soft;
 }
 h3 {
     color: white;
