@@ -41,6 +41,9 @@ h3 {
 #showOnMobile {
     display: none;
 }
+.currentPage {
+    text-decoration: underline;
+}
 .biggerP {
     font-size: 1.01em;
     line-height: 160%;
