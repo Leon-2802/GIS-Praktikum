@@ -1,0 +1,5 @@
+Aufgabe 3: 
+https://leon-2802.github.io/GIS-Praktikum/A3-Typescript-Basics/index.html
+
+Repo:
+https://github.com/Leon-2802/GIS-Praktikum

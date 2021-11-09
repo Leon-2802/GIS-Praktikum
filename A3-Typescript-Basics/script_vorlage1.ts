@@ -57,20 +57,20 @@ let events: any[][] = [
 console.log(events.length);
 
 // Lösung b) ...
-for (let i:number = 0; i < events.length; i++) {
+for (let i: number = 0; i < events.length; i++) {
   console.log(events[i][0]);
   console.log(events[i][1]);
 }
 
 // Lösung c) ...
-function lösungc(array:any[][]): number {
-  let result:number = 0;
-    for(let i:number = 1; i < array.length; i++) {
-      let one: number = events[i][1];
-      if(one > result) 
-        result = one; 
+function lösungc(array: any[][]): number {
+  let result: number = 0;
+  for (let i: number = 1; i < array.length; i++) {
+      let currentNumber: number = events[i][1];
+      if (currentNumber > result) 
+        result = currentNumber; 
     }
-    return result;
+  return result;
 } 
 console.log(lösungc(events));
 
@@ -115,7 +115,7 @@ class ConcertEvent {
     this.price = price;
   }
 
-  show():void {
+  show(): void {
     console.log(this.interpret);
     console.log(this.price);
   }
@@ -136,6 +136,6 @@ let concertArray: ConcertEvent[] = [
   new ConcertEvent("Bee Gees", 100.2)
 ];
 
-for(let i:number = 0; i < concertArray.length; i++) {
+for (let i: number = 0; i < concertArray.length; i++) {
   concertArray[i].show();
 }
