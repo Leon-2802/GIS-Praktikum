@@ -66,7 +66,7 @@ for (let i: number = 0; i < events.length; i++) {
 function lösungc(array: any[][]): number {
   let result: number = 0;
   for (let i: number = 1; i < array.length; i++) {
-      let currentNumber: number = events[i][1];
+      let currentNumber: number = array[i][1];
       if (currentNumber > result) 
         result = currentNumber; 
     }
@@ -97,10 +97,14 @@ factorial(5);
 
 // Lösung f) ...
 function lösungf(): void {
-  for (let i: number = 1; i < 33; i++) {
-    console.log(i * 3);
+  let anzahl: number = 0;
+  for (let i: number = 100; i > 0; i--) {
+    if ((i % 3) == 0) {
+      console.log(i);
+      anzahl++;
+    }
   }
-  console.log(33);
+  console.log(anzahl);
 }
 lösungf();
 

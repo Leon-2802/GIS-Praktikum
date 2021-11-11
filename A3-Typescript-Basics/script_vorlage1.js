@@ -52,9 +52,9 @@ for (var i = 0; i < events.length; i++) {
 function lösungc(array) {
     var result = 0;
     for (var i = 1; i < array.length; i++) {
-        var one = events[i][1];
-        if (one > result)
-            result = one;
+        var currentNumber = array[i][1];
+        if (currentNumber > result)
+            result = currentNumber;
     }
     return result;
 }
@@ -80,10 +80,14 @@ function factorial(n) {
 factorial(5);
 // Lösung f) ...
 function lösungf() {
-    for (var i = 1; i < 33; i++) {
-        console.log(i * 3);
+    var anzahl = 0;
+    for (var i = 100; i > 0; i--) {
+        if ((i % 3) == 0) {
+            console.log(i);
+            anzahl++;
+        }
     }
-    console.log(33);
+    console.log(anzahl);
 }
 lösungf();
 // Lösung g) ...
