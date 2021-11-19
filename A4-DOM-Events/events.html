@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="travel, culture, events">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+
+    <script src="script/main.js" defer></script>
+
+    <title>Events in Budapest</title>
+</head>
+<body>
+    <header>
+        <h1 id="heading">Events in Budapest</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a class="currentPage" href="events.html">Events</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="section1">
+            <h2>General Information</h2>
+            <p class="biggerP">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p>
+        </div>
+
+        <video id="event-vid" autoplay loop>
+            <source src="assets/pexels-justalex-himself-6789135.mp4" type="video/mp4">
+            Your Browser does not support the video tag.
+        </video>
+
+        <div id="event-input-fields">
+            <form>
+                <div id="input-row1">
+                    <input id="artist" type="text" placeholder="Enter name of artist..." required>
+                    <input id="price" type="number" required>
+                </div>
+                <input id="date" type="datetime-local" required>
+                <br>
+            </form>
+        </div>
+        <button id="submit">Submit</button>
+
+        <div id="event-table">
+            <table id="table">
+                <tr>
+                  <th>Artist</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Price</th>
+                  <th></th>
+                </tr>
+              </table>
+        </div>
+    </main>
+
+    <hr>
+    <footer>
+        <p>&copy; Leon Gobbert</p>
+        <div class="footer-icons">
+            <div class="footer-icon"><a href="https://github.com/Leon-2802" target="_blank"><i class="fa fa-github"></i>GitHub</a></div>
+            <div class="footer-icon"><a href="https://codepen.io/banzaiboyyy" target="_blank"><i class="fa fa-codepen"></i>CodePen</a></div>
+        </div>
+    </footer>
+</body>
+</html>
