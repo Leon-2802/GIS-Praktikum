@@ -1,5 +1,6 @@
 namespace main {
 
+    //HTML-Elemente:
     const table: HTMLElement = document.getElementById("table");
     const artistInput: HTMLInputElement = <HTMLInputElement>(document.getElementById("artist"));
     const priceInput: HTMLInputElement = <HTMLInputElement>(document.getElementById("price"));
@@ -7,6 +8,7 @@ namespace main {
     const submit: HTMLButtonElement = <HTMLButtonElement>(document.getElementById("submit"));
     const clear: HTMLButtonElement = <HTMLButtonElement>(document.getElementById("clear"));
 
+    //Vorlage für Event-Elemente:
     interface TableRow {
         artist: string;
         price: string;
@@ -14,14 +16,17 @@ namespace main {
         time: string;
     }
 
+    //Variablen für Speicher-Funktionen:
     let rows: TableRow[] = [];    
     let loadRows: TableRow[] = [];
     let savedRows: string;
 
+    //Bei Laden der Seite:
     window.addEventListener("load", (): void => {
         loadTable();
     });
 
+    //Button-Click Event-Listener:
     submit.addEventListener("click", (): void => {
         createEvent(artistInput.value, priceInput.value, dateInput.value.substring(0, 10), dateInput.value.substring(11, 16), true);
         setTimeout(function(): void {
@@ -32,6 +37,7 @@ namespace main {
         localStorage.clear();
     });
 
+    //Events in Tabelle packen (bei Submit oder Neu-Laden der Seite):
     function createEvent(artistText: string, priceText: string, dateText: string, timeText: string, save: boolean): void {
         let tableRow: HTMLElement = document.createElement("tr");
         let artist: HTMLElement = document.createElement("td");
@@ -54,6 +60,8 @@ namespace main {
         tableRow.appendChild(trashContainer);
         trashContainer.appendChild(trash);
 
+        let storageIndex: number = 0;
+        //Event in Localstorage speichern:
         if (save) {
             let saveRow: TableRow = {
                 artist: artist.textContent,
@@ -62,14 +70,16 @@ namespace main {
                 time: time.textContent
             };
             rows.push(saveRow);
+            storageIndex = rows.length - 1;
     
-            savedRows = JSON.stringify(rows);
-            console.log(savedRows);
-            localStorage.setItem("savedRows", savedRows);
+            updateStorage();
         }
 
         trash.addEventListener("click", (): void => {
             table.removeChild(tableRow);
+            rows = JSON.parse(localStorage.getItem("savedRows"));
+            rows.splice(storageIndex, 1);
+            updateStorage();
         });
     }
 
@@ -84,11 +94,15 @@ namespace main {
             return;
 
         loadRows = JSON.parse(localStorage.getItem("savedRows"));
-        console.log(loadRows);
         for (let i: number = 0; i < loadRows.length; i++) {
             createEvent(loadRows[i].artist, loadRows[i].price, loadRows[i].date, loadRows[i].time, false);
         }
         rows = loadRows;
         loadRows = [];
+    }
+
+    function updateStorage(): void {
+        savedRows = JSON.stringify(rows);
+        localStorage.setItem("savedRows", savedRows);
     }
 }
