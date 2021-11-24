@@ -5,8 +5,7 @@ namespace main {
     const priceInput: HTMLInputElement = <HTMLInputElement>(document.getElementById("price"));
     const dateInput: HTMLInputElement = <HTMLInputElement>(document.getElementById("date"));
     const submit: HTMLButtonElement = <HTMLButtonElement>(document.getElementById("submit"));
-    const load: HTMLButtonElement = <HTMLButtonElement>(document.getElementById("load"));
-    const clear: HTMLButtonElement = <HTMLButtonElement>(document.getElementById("load"));
+    const clear: HTMLButtonElement = <HTMLButtonElement>(document.getElementById("clear"));
 
     interface TableRow {
         artist: string;
@@ -28,10 +27,6 @@ namespace main {
         setTimeout(function(): void {
             clearInput();
         },         100);
-    });
-    load.addEventListener("click", (): void => {
-        console.log(loadRows);
-        loadTable();
     });
     clear.addEventListener("click", (): void => {
         localStorage.clear();
@@ -85,9 +80,11 @@ namespace main {
     }
 
     function loadTable(): void {
+        if (localStorage.length < 1)
+            return;
+
         loadRows = JSON.parse(localStorage.getItem("savedRows"));
         console.log(loadRows);
-        
         for (let i: number = 0; i < loadRows.length; i++) {
             createEvent(loadRows[i].artist, loadRows[i].price, loadRows[i].date, loadRows[i].time, false);
         }

@@ -5,8 +5,7 @@ var main;
     var priceInput = (document.getElementById("price"));
     var dateInput = (document.getElementById("date"));
     var submit = (document.getElementById("submit"));
-    var load = (document.getElementById("load"));
-    var clear = (document.getElementById("load"));
+    var clear = (document.getElementById("clear"));
     var rows = [];
     var loadRows = [];
     var savedRows;
@@ -18,10 +17,6 @@ var main;
         setTimeout(function () {
             clearInput();
         }, 100);
-    });
-    load.addEventListener("click", function () {
-        console.log(loadRows);
-        loadTable();
     });
     clear.addEventListener("click", function () {
         localStorage.clear();
@@ -68,6 +63,8 @@ var main;
         dateInput.value = "";
     }
     function loadTable() {
+        if (localStorage.length < 1)
+            return;
         loadRows = JSON.parse(localStorage.getItem("savedRows"));
         console.log(loadRows);
         for (var i = 0; i < loadRows.length; i++) {

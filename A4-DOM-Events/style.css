@@ -67,6 +67,11 @@ h3 {
     font-size: larger;
     font-style: italic;
 }
+.button-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+}
 footer {
     display: flex;
     justify-content: space-between;
@@ -163,10 +168,8 @@ input {
     width: 100%;
 }
 #submit {
-    width: 15%;
+    width: 160px;
     height: 25px;
-    margin-top: 1%;
-    margin-left: 43%;
     background-color: rgba(150, 180, 0, 0);
     border: 1px solid #fff;
     color: white;
@@ -191,30 +194,16 @@ table, th, td {
 th {
     text-align: start;
 }
+
+/*Elemente unter Table*/
 .fa-trash:hover {
     color: rgb(255, 100, 100);
     cursor: pointer;
 }
-#load {
-    width: 15%;
-    height: 25px;
-    margin-top: 2%;
-    margin-left: 43%;
-    background-color: rgba(150, 180, 0, 0);
-    border: 1px solid #fff;
-    color: white;
-    font-size: 18px;
-}
-#load:hover {
-    background-color: rgba(0, 0, 0, 0);
-    cursor: pointer;
-    font-style: italic;
-}
 #clear {
-    width: 15%;
+    width: 160px;
     height: 25px;
-    margin-top: 2%;
-    margin-left: 43%;
+    margin-top: 1%;
     margin-bottom: 10%;
     background-color: rgba(150, 180, 0, 0);
     border: 1px solid #fff;
@@ -232,7 +221,10 @@ th {
     body {
         font-size: 1.1em;
     }
-    
+    #event-input-fields {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 @media (max-width: 1000px) {
     body {
@@ -241,6 +233,9 @@ th {
     }
     header nav  a{
         font-size: 1.15em;
+    }
+    #clear {
+        font-size: 15px;
     }
 }
 @media (max-width: 850px) {
@@ -274,6 +269,9 @@ th {
         margin-left: 0;
         width: 100%;
         border-collapse: collapse;
+    }
+    form {
+        width: 100%;
     }
 }
 @media (max-width: 500px) {
