@@ -182,7 +182,6 @@ input {
 table {
     margin-top: 3%;
     margin-left: 10%;
-    margin-bottom: 10%;
     width: 80%;
     border-collapse: collapse;
 }
@@ -195,6 +194,37 @@ th {
 .fa-trash:hover {
     color: rgb(255, 100, 100);
     cursor: pointer;
+}
+#load {
+    width: 15%;
+    height: 25px;
+    margin-top: 2%;
+    margin-left: 43%;
+    background-color: rgba(150, 180, 0, 0);
+    border: 1px solid #fff;
+    color: white;
+    font-size: 18px;
+}
+#load:hover {
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    font-style: italic;
+}
+#clear {
+    width: 15%;
+    height: 25px;
+    margin-top: 2%;
+    margin-left: 43%;
+    margin-bottom: 10%;
+    background-color: rgba(150, 180, 0, 0);
+    border: 1px solid #fff;
+    color: white;
+    font-size: 18px;
+}
+#clear:hover {
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    font-style: italic;
 }
 
 /*Responsiv:*/
