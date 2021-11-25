@@ -28,7 +28,7 @@ namespace main {
 
     //Button-Click Event-Listener:
     submit.addEventListener("click", (): void => {
-        createEvent(artistInput.value, priceInput.value, dateInput.value.substring(0, 10), dateInput.value.substring(11, 16), true);
+        createEvent(artistInput.value, priceInput.value, dateInput.value.substring(0, 10), dateInput.value.substring(11, 16), true, 0);
         setTimeout(function(): void {
             clearInput();
         },         100);
@@ -38,7 +38,7 @@ namespace main {
     });
 
     //Events in Tabelle packen (bei Submit oder Neu-Laden der Seite):
-    function createEvent(artistText: string, priceText: string, dateText: string, timeText: string, save: boolean): void {
+    function createEvent(artistText: string, priceText: string, dateText: string, timeText: string, save: boolean, index: number): void {
         let tableRow: HTMLElement = document.createElement("tr");
         let artist: HTMLElement = document.createElement("td");
         artist.textContent = artistText;
@@ -60,7 +60,7 @@ namespace main {
         tableRow.appendChild(trashContainer);
         trashContainer.appendChild(trash);
 
-        let storageIndex: number = 0;
+        let storageIndex: number = index;
         //Event in Localstorage speichern:
         if (save) {
             let saveRow: TableRow = {
@@ -76,10 +76,10 @@ namespace main {
         }
 
         trash.addEventListener("click", (): void => {
-            table.removeChild(tableRow);
             rows = JSON.parse(localStorage.getItem("savedRows"));
             rows.splice(storageIndex, 1);
             updateStorage();
+            table.removeChild(tableRow);
         });
     }
 
@@ -95,7 +95,7 @@ namespace main {
 
         loadRows = JSON.parse(localStorage.getItem("savedRows"));
         for (let i: number = 0; i < loadRows.length; i++) {
-            createEvent(loadRows[i].artist, loadRows[i].price, loadRows[i].date, loadRows[i].time, false);
+            createEvent(loadRows[i].artist, loadRows[i].price, loadRows[i].date, loadRows[i].time, false, i);
         }
         rows = loadRows;
         loadRows = [];

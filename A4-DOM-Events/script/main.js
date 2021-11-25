@@ -17,7 +17,7 @@ var main;
     });
     //Button-Click Event-Listener:
     submit.addEventListener("click", function () {
-        createEvent(artistInput.value, priceInput.value, dateInput.value.substring(0, 10), dateInput.value.substring(11, 16), true);
+        createEvent(artistInput.value, priceInput.value, dateInput.value.substring(0, 10), dateInput.value.substring(11, 16), true, 0);
         setTimeout(function () {
             clearInput();
         }, 100);
@@ -26,7 +26,7 @@ var main;
         localStorage.clear();
     });
     //Events in Tabelle packen (bei Submit oder Neu-Laden der Seite):
-    function createEvent(artistText, priceText, dateText, timeText, save) {
+    function createEvent(artistText, priceText, dateText, timeText, save, index) {
         var tableRow = document.createElement("tr");
         var artist = document.createElement("td");
         artist.textContent = artistText;
@@ -46,7 +46,7 @@ var main;
         tableRow.appendChild(price);
         tableRow.appendChild(trashContainer);
         trashContainer.appendChild(trash);
-        var storageIndex = 0;
+        var storageIndex = index;
         //Event in Localstorage speichern:
         if (save) {
             var saveRow = {
@@ -60,10 +60,10 @@ var main;
             updateStorage();
         }
         trash.addEventListener("click", function () {
-            table.removeChild(tableRow);
             rows = JSON.parse(localStorage.getItem("savedRows"));
             rows.splice(storageIndex, 1);
             updateStorage();
+            table.removeChild(tableRow);
         });
     }
     function clearInput() {
@@ -76,7 +76,7 @@ var main;
             return;
         loadRows = JSON.parse(localStorage.getItem("savedRows"));
         for (var i = 0; i < loadRows.length; i++) {
-            createEvent(loadRows[i].artist, loadRows[i].price, loadRows[i].date, loadRows[i].time, false);
+            createEvent(loadRows[i].artist, loadRows[i].price, loadRows[i].date, loadRows[i].time, false, i);
         }
         rows = loadRows;
         loadRows = [];
