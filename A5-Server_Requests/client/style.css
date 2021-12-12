@@ -1,0 +1,29 @@
+body {
+    height: 90vh;
+    background-color: rgb(34, 34, 34);
+}
+input {
+    width: 25%;
+    height: 30px;
+    font-size: 15px;
+    color: white;
+    background-color: rgba(0, 175, 206,0);
+    border: 1px solid white;
+}
+button {
+    width: 70px;
+    font-size: 15px;
+    background-color: rgba(0, 15, 15,0);
+    color: white;
+    border: 1px solid white;
+}
+#get {
+    width: 150px;
+}
+button:hover {
+    font-style: italic;
+    cursor: pointer;
+}
+.serverResponse {
+    color: white;
+}
