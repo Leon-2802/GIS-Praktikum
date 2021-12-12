@@ -1,7 +1,0 @@
-Repo:
-https://github.com/Leon-2802/GIS-Praktikum
-
-Aufgabe 4: https://leon-2802.github.io/GIS-Praktikum/A4-DOM-Events/index.html
-
-
-Leon Gobbert - 268255
