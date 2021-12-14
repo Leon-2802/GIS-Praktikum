@@ -38,11 +38,13 @@ var dateInput = document.getElementById("dateInput");
 var sendBtn = document.getElementById("send");
 var answerArea = document.getElementById("answer");
 var url = "http://127.0.0.1:3000";
-var path = "/convertDate";
+var path = "/convertDate"; //Wichtig um die richtige Aktion im Switch-Case der Server-Funktion auszulösen
 sendBtn.addEventListener("click", function (evt) {
     evt.preventDefault();
     sendDateToServer();
 });
+//Async ist eine Funktion die asynchron außerhalb des üblichen Kontrollflusses verläuft, so wird die Seite nicht blockiert, da der JS-Code weiter ausgeführt werden kann
+//async functions dürfen einen await ausdruck enthalten, welcher die asynchrone Funktion anhält. Zudem sind sie vom Typ Promise, ein Objekt, dass ein asynchrones Ereignis verwaltet
 function requestDateWithGet(url) {
     return __awaiter(this, void 0, void 0, function () {
         var response, date;
@@ -69,7 +71,7 @@ function sendDateToServer() {
                     return [4 /*yield*/, requestDateWithGet(url + path + ("?date=" + inputValue))];
                 case 1:
                     serverResponse = _a.sent();
-                    attachDateToDOM(serverResponse);
+                    attachDateToDOM(serverResponse); //serverResponse ist der in der convertAndPrintDate()-Methode in server.js erstellte String -> Dieser wird nun in den DOM gepackt
                     return [2 /*return*/];
             }
         });
