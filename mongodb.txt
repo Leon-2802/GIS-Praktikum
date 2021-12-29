@@ -1,0 +1,86 @@
+MongoDB shell version v5.0.5
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("b3bec218-212b-4c85-a510-48c7ca37b713") }
+MongoDB server version: 5.0.5
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2021-12-18T20:04:21.839+01:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> use db_gobbertl
+switched to db db_gobbertl
+> db
+db_gobbertl
+> show collections
+> db.createCollection("Events")
+{ "ok" : 1 }
+> show collections
+Events
+> db.collection_Events.insertOne({eventNr: 1, eventName: "RIN-Live", place: "Berlin", price: "140", date: "22-06-2023"})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("61be3798950a85a161f3899f")
+}
+> show Collections
+uncaught exception: Error: don't know how to show [Collections] :
+shellHelper.show@src/mongo/shell/utils.js:1211:11
+shellHelper@src/mongo/shell/utils.js:838:15 
+@(shellhelp2):1:1
+> show collections
+Events
+collection_Events
+> show dbs
+admin        0.000GB
+config       0.000GB
+db_gobbertl  0.000GB
+local        0.000GB
+> db.collection.find(1)
+uncaught exception: Error: don't know how to massage : number :
+DBCollection.prototype._massageObject@src/mongo/shell/collection.js:215:11
+DBCollection.prototype.find@src/mongo/shell/collection.js:223:30
+@(shell):1:1
+> db.collection_Events.find()
+{ "_id" : ObjectId("61be3798950a85a161f3899f"), "eventNr" : 1, "eventName" : "RIN-Live", "place" : "Berlin", "price" : "140", "date" : "22-06-2023" }
+> db.collection_Events.find({eventNr: 1})
+{ "_id" : ObjectId("61be3798950a85a161f3899f"), "eventNr" : 1, "eventName" : "RIN-Live", "place" : "Berlin", "price" : "140", "date" : "22-06-2023" }
+> db.collection_Events.insertOne({eventNr: 2, eventName: "Reggae-Festival", place: "Freiburg", price: "100", date: "30-07-2022"})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("61be38f6950a85a161f389a0")
+}
+> db.collection_Events.find({eventNr: 2})
+{ "_id" : ObjectId("61be38f6950a85a161f389a0"), "eventNr" : 2, "eventName" : "Reggae-Festival", "place" : "Freiburg", "price" : "100", "date" : "30-07-2022" }
+> db.collection_Events.update({_id: ObjectId("61be38f6950a161f389a0")}, {"eventName" : "Reggae-Festival", "price" : "120"})
+Error: invalid object id: length :
+@(shell):1:35
+> db.Events.update({"eventNr": 2}, {$set: {price: "120"}})
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+> db.Events.find({eventNr: 2})
+> db.collection_Events.find({eventNr: 2})
+{ "_id" : ObjectId("61be38f6950a85a161f389a0"), "eventNr" : 2, "eventName" : "Reggae-Festival", "place" : "Freiburg", "price" : "100", "date" : "30-07-2022" }
+> db.collection_Events.update({eventNr: 2}, {$set: {price: "120"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.collection_Events.find({eventNr: 2})
+{ "_id" : ObjectId("61be38f6950a85a161f389a0"), "eventNr" : 2, "eventName" : "Reggae-Festival", "place" : "Freiburg", "price" : "120", "date" : "30-07-2022" }
+>
+
+
+!db.collection_Events.... ist unnötig, da ich ungewollt collection_Events statt nur Events als Name gewählt habe.
+Man kann Namen für Datenbanken und Collection vollkommen frei wählen!

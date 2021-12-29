@@ -1,0 +1,301 @@
+/*Allgemeiner Style für alle Elemente eines Typs:*/
+body {
+    font-family: 'Zen Antique Soft', serif;
+    background-color: hsl(0, 0%, 18%);
+    color: rgb(207, 207, 207);
+    font-size: 1.15em;
+}
+[href] {
+    color: white;   
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+main {
+    max-width: 80vw;
+    margin: auto;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 14vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-image: url("assets/pexels-musicfactory-lehmannsound-66192.jpg");
+    background-position: center;
+    background-size: cover;
+}
+h2 {
+    color: white;
+}
+h3 {
+    color: white;
+}
+
+/*Klassenstyling:*/
+#showOnMobile {
+    display: none;
+}
+.currentPage {
+    text-decoration: underline;
+}
+.biggerP {
+    font-size: 1.01em;
+    line-height: 160%;
+}
+.section {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    margin-bottom: 50px;
+}
+.sectionImg {
+    width: 50%;
+    height: auto;
+    align-self: center;
+}
+.sectionText {
+    width: 50%;
+    line-height: 160%;
+}
+.sectionText::first-line {
+    font-size: larger;
+    font-style: italic;
+}
+.button-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+}
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-icons {
+    display: flex;
+}
+.footer-icon {
+    margin-right: 30px;
+}
+.footer-icon i{
+    margin-right: 8px;
+}
+.footer-icon:hover {
+    /* color: red; */
+    animation: 1s bounce ease-in-out;
+    /* transition: .4s color ease-in-out; */
+}
+
+#copyright{
+    animation: 1s bounce ease-in-out;
+}
+
+/*IDs und spezielle Elemete index.html von oben nach unten geordnet:*/
+#heading {
+    font-size: 35px;
+    color: white;
+}
+header nav {
+    margin-right: 7%;
+}
+header nav  a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.15em;
+    font-weight: 600;
+    margin-right: 50px;
+}
+#section1 {
+    margin-top: 25vh;
+    margin-bottom: 50px;
+}
+#wikipedia-link {
+    margin-left: 10%;
+    font-style: italic;
+}
+#section1 h2 {
+    text-align: center;
+}
+
+/*Event-Page Extra-Elemente:*/
+#event-vid {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: auto;
+}
+
+/*input:*/
+#event-input-fields {
+    display: flex;
+    width: 80%;
+    margin-top: 3%;
+    margin-left: 10%;
+    justify-content: center;
+}
+form {
+    width: 80%;
+}
+input {
+    height: 27px;
+    background-color: rgba(150, 180, 0, 0);
+    border: 1px solid #fff;
+    color: white;
+}
+#input-row1 {
+    display: flex;
+    justify-content: center;
+    column-gap: 5px;
+}
+#artist {
+    width: 50%;
+}
+#artist::placeholder {
+    color: #fff;
+}
+#price {
+    width: 50%;
+}
+#date {
+    margin-top: 1%;
+    width: 100%;
+}
+#submit {
+    width: 160px;
+    height: 25px;
+    background-color: rgba(150, 180, 0, 0);
+    border: 1px solid #fff;
+    color: white;
+    font-size: 18px;
+}
+#submit:hover {
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    font-style: italic;
+}
+
+/*table*/
+table {
+    margin-top: 3%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+    width: 80%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid white;
+}
+th {
+    text-align: start;
+}
+
+/*Elemente unter Table*/
+.fa-trash:hover {
+    color: rgb(255, 100, 100);
+    cursor: pointer;
+}
+
+/*Responsiv:*/
+@media (max-width: 1200px) {
+    body {
+        font-size: 1.1em;
+    }
+    #event-input-fields {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+@media (max-width: 1000px) {
+    body {
+        font-size: 1em;
+        font-size: 1.15em;
+    }
+    header nav  a{
+        font-size: 1.15em;
+    }
+    #clear {
+        font-size: 15px;
+    }
+}
+@media (max-width: 850px) {
+    body {
+        font-size: 1em;
+    }
+    .section {
+        display: block;
+    }
+    .sectionText {
+        width: 100%;
+    }
+    .sectionImg {
+        width: 100%;
+    }
+    #heading {
+        font-size: 28px;
+    }
+    #hideOnMobile {
+        display: none;
+    }
+    #showOnMobile {
+        display: block;
+    }
+    #event-vid {
+        width: 100%;
+        height: auto;
+    }
+    table {
+        margin-top: 3%;
+        margin-left: 0;
+        width: 100%;
+        border-collapse: collapse;
+    }
+    form {
+        width: 100%;
+    }
+}
+@media (max-width: 500px) {
+    body {
+        font-size: 0.9em;
+    }
+    footer {
+        font-size: 0.8em;
+    }
+    .footer-icon {
+        margin-right: 15px;
+    }
+    #heading {
+        font-size: 20px;
+    }
+    header nav  a{
+        font-size: 1em;
+        margin-right: 20px;
+    }
+}
+@media (max-width: 380px) {
+    #heading {
+        font-size: 20px;
+    }
+    header nav  a{
+        margin-right: 10px;
+    }
+}
+
+/*Animations:*/
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
